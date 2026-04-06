@@ -77,6 +77,7 @@ const saveMovie = () => {
         body: form_data,
         headers: {
             Accept: "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
     })
         .then(function (response) {

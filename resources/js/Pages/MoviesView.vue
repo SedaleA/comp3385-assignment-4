@@ -31,11 +31,12 @@ const fetchMovies = () => {
     fetch("/api/v1/movies", {
         headers: {
             Accept: "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
     })
         .then((response) => response.json())
         .then((data) => {
-            movies.value = data.movies;
+            movies.value = data.movies || [];
         })
         .catch((error) => {
             console.log(error);
